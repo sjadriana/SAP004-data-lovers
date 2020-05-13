@@ -1,94 +1,61 @@
-import { searchPokemon, sortOrder, filterByType } from './data.js';
+import { searchPokemon, sortAlfaOrder, sortNumOrder, filtrar } from './data.js';
 import data from './data/pokemon/pokemon.js';
 
 // banco de dados
-const pokemons = data.pokemon;
+const pokemonData = data.pokemon;
 
-
-// **** ids HTML *********
-
-// ids do Nav 
+// ids do HTML
 const searchBar = document.querySelector("#searchBar");
 //const buttonOrder = document.querySelector("#buttonOrder");
 //const buttonFilter = document.querySelector("#buttonFilter");
 //const buttonSearch = document.querySelector("#buttonSearch");
 const pokemonsList = document.querySelector("#root");
-
-// ids de Ordem
 const buttonAZ = document.querySelector("#buttonAZ");
 const buttonZA = document.querySelector("#buttonZA");
 const buttonCresc = document.querySelector("#buttonCresc");
 const buttonDecre = document.querySelector("#buttonDecre");
-
-// ids de Tipo
-const buttonSteel = document.querySelector("#buttonSteel");
 const buttonWater = document.querySelector("#buttonWater");
-const buttonDragon = document.querySelector("#buttonDragon");
-const buttonEletric = document.querySelector("#buttonEletric");
-const buttonFairy = document.querySelector("#buttonFairy");
-const buttonGhost = document.querySelector("#buttonGhost");
-const buttonFire = document.querySelector("#buttonFire");
-const buttonIce = document.querySelector("#buttonIce");
-const buttonBug = document.querySelector("#buttonBug");
-const buttonFighting = document.querySelector("#buttonFighting");
-const buttonNormal = document.querySelector("#buttonNormal");
-const buttonDark = document.querySelector("#buttonDark");
-const buttonRock = document.querySelector("#buttonRock");
-const buttonGrass = document.querySelector("#buttonGrass");
-const buttonPsychic = document.querySelector("#buttonPsychic");
-const buttonGround = document.querySelector("#buttonGround");
-const buttonPoison = document.querySelector("#buttonPoison");
-const buttonFlying = document.querySelector("#buttonFlying");
-
-// ************************
-
-
-
-// **** Card **************
 
 // card do pokémon
 const card = (num, name, img, type) => {
   return `<figure class="card-pokemon"><p class="pokemon-num">${num}</p>
   <img src="${img}" alt="Miniatura do pokémon ${name} do tipo ${type}">
-  <p class="pokemon-type">${type}</p>
   <figcaption class="pokemon-name">${name}</figcaption>
   </figure>`
 };
 
 // mapping para gerar o card
-pokemons.map(pkm => pokemonsList.innerHTML += card (pkm.num, pkm.name, pkm.img, pkm.type));
+pokemonData.map(pokemon => pokemonsList.innerHTML += card (pokemon.num, pokemon.name, pokemon.img, pokemon.type));
 
 // cards filtrados
-searchBar.addEventListener("keyup",() => displayPokemons(searchPokemon(searchBar, pokemons)));
+earchBar.addEventListener("keyup",() => displayPokemons(searchPokemon(searchBar.value.toLowerCase(), "name", pokemonData)));
 
-const displayPokemons = (pkm) => {
-  const cards = pkm
-    .map((pkm) => {
-      return `<figure class="card-pokemon"><p class="pokemon-num">${pkm.num}</p>
-      <img src="${pkm.img}" alt="Miniatura do pokémon ${pkm.name} do tipo ${pkm.type}">
-      <figcaption class="pokemon-name">${pkm.name}</figcaption>
-      </figure>`;
+const displayPokemons = (pokemon) => {
+  const cards = pokemon
+    .map((pokemon) => {
+      return `<div class="pokemon-info" ><figure class="card-pokemon"><p class="pokemon-num">${pokemon.num}</p>
+      <img class="pokemon-image" src="${pokemon.img}" alt="Miniatura do pokémon ${pokemon.name} do tipo ${pokemon.type}">
+</figure> <div><figcaption class="pokemon-name">${pokemon.name}</figcaption> </div></div>`;
     })
     .join('');
   pokemonsList.innerHTML = cards;
 };
+
 // ************************
 
+// botão a-z 
+buttonAZ.addEventListener("click", () => {
+  const az = sortAlfaOrder(pokemons, "name", "az");
+  displayPokemons (az);
+});
 
 
 // **** Botões Ordem ******
 
-// botão A-Z 
-buttonAZ.addEventListener("click", () => displayPokemons(sortOrder(pokemons, "name", "az")));
-
-// botão Z-A
-buttonZA.addEventListener("click", () => displayPokemons(sortOrder(pokemons, "name", "za")));
-
-// botão 1-151
-buttonCresc.addEventListener("click", () => displayPokemons(sortOrder(pokemons, "id", "cresc")));
-
-// botão 151-1
-buttonDecre.addEventListener("click", () => displayPokemons(sortOrder(pokemons, "id", "decre")));
+buttonAZ.addEventListener("click", () => displayPokemons(sortOrder("az", "name", pokemonData)));
+buttonZA.addEventListener("click", () => displayPokemons(sortOrder("za", "name", pokemonData)));
+buttonCresc.addEventListener("click", () => displayPokemons(sortOrder("cresc", "id", pokemonData)));
+buttonDecre.addEventListener("click", () => displayPokemons(sortOrder("decre", "id", pokemonData)));
 
 // ************************
 
@@ -96,58 +63,22 @@ buttonDecre.addEventListener("click", () => displayPokemons(sortOrder(pokemons, 
 
 // **** Botões Tipo *******
 
-// botão Aço
-buttonSteel.addEventListener("click", () => displayPokemons(filterByType("Steel", pokemons)));
+buttonSteel.addEventListener("click", () => displayPokemons(filterByType("Steel", "type", pokemonData)));
+buttonWater.addEventListener("click", () => displayPokemons(filterByType("Water", "type", pokemonData)));
+buttonDragon.addEventListener("click", () => displayPokemons(filterByType("Dragon", "type", pokemonData)));
+buttonEletric.addEventListener("click", () => displayPokemons(filterByType("Electric", "type", pokemonData)));
+buttonFairy.addEventListener("click", () => displayPokemons(filterByType("Fairy", "type", pokemonData)));
+buttonGhost.addEventListener("click", () => displayPokemons(filterByType("Ghost", "type", pokemonData)));
+buttonFire.addEventListener("click", () => displayPokemons(filterByType("Fire", "type", pokemonData)));
+buttonIce.addEventListener("click", () => displayPokemons(filterByType("Ice", "type", pokemonData)));
+buttonBug.addEventListener("click", () => displayPokemons(filterByType("Bug", "type", pokemonData)));
+buttonFighting.addEventListener("click", () => displayPokemons(filterByType("Fighting", "type", pokemonData)));
+buttonNormal.addEventListener("click", () => displayPokemons(filterByType("Normal", "type", pokemonData)));
+buttonDark.addEventListener("click", () => displayPokemons(filterByType("Dark", "type", pokemonData)));
+buttonRock.addEventListener("click", () => displayPokemons(filterByType("Rock", "type", pokemonData)));
+buttonGrass.addEventListener("click", () => displayPokemons(filterByType("Grass", "type", pokemonData)));
+buttonPsychic.addEventListener("click", () => displayPokemons(filterByType("Psychic", "type", pokemonData)));
+buttonGround.addEventListener("click", () => displayPokemons(filterByType("Ground", "type", pokemonData)));
+buttonPoison.addEventListener("click", () => displayPokemons(filterByType("Poison", "type", pokemonData)));
+buttonFlying.addEventListener("click", () => displayPokemons(filterByType("Flying", "type", pokemonData)));
 
-// botão Água
-buttonWater.addEventListener("click", () => displayPokemons(filterByType("Water", pokemons)));
-
-// botão Dragão 
-buttonDragon.addEventListener("click", () => displayPokemons(filterByType("Dragon", pokemons)));
-
-// botão Elétrico
-buttonEletric.addEventListener("click", () => displayPokemons(filterByType("Electric", pokemons)));
-
-// botão Fada
-buttonFairy.addEventListener("click", () => displayPokemons(filterByType("Fairy", pokemons)));
-
-// botão Fantasma
-buttonGhost.addEventListener("click", () => displayPokemons(filterByType("Ghost", pokemons)));
-
-// botão Fogo
-buttonFire.addEventListener("click", () => displayPokemons(filterByType("Fire", pokemons)));
-
-// botão Gelo
-buttonIce.addEventListener("click", () => displayPokemons(filterByType("Ice", pokemons)));
-
-// Botão Inseto 
-buttonBug.addEventListener("click", () => displayPokemons(filterByType("Bug", pokemons)));
-
-// botão Lutador
-buttonFighting.addEventListener("click", () => displayPokemons(filterByType("Fighting", pokemons)));
-
-// botão Normal
-buttonNormal.addEventListener("click", () => displayPokemons(filterByType("Normal", pokemons)));
-
-// Botão Noturno
-buttonDark.addEventListener("click", () => displayPokemons(filterByType("Dark", pokemons)));
-
-// botão Pedra
-buttonRock.addEventListener("click", () => displayPokemons(filterByType("Rock", pokemons)));
-
-// botão Planta
-buttonGrass.addEventListener("click", () => displayPokemons(filterByType("Grass", pokemons)));
-
-// botão Psíquico 
-buttonPsychic.addEventListener("click", () => displayPokemons(filterByType("Psychic", pokemons)));
-
-// botão Terrestre
-buttonGround.addEventListener("click", () => displayPokemons(filterByType("Ground", pokemons)));
-
-// botão Venenoso
-buttonPoison.addEventListener("click", () => displayPokemons(filterByType("Poison", pokemons)));
-
-// botão Voador
-buttonFlying.addEventListener("click", () => displayPokemons(filterByType("Flying", pokemons)));
-
-// ************************
