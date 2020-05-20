@@ -143,8 +143,8 @@ https://www.figma.com/proto/HXPRzYK8oAl1zHjUNvycWB/Pok%C3%A9dex?node-id=69%3A377
 
 
 
-[![testes-A] (img/Home-A.png)](https://www.figma.com/proto/HXPRzYK8oAl1zHjUNvycWB/Pok%C3%A9dex?node-id=1%3A2&scaling=scale-down)
-[![testes-B] (img/Home-A.png)](https://www.figma.com/proto/HXPRzYK8oAl1zHjUNvycWB/Pok%C3%A9dex?node-id=69%3A377&scaling=scale-down)
+[![testes-A](img/Home-A.jpg)](https://www.figma.com/proto/HXPRzYK8oAl1zHjUNvycWB/Pok%C3%A9dex?node-id=1%3A2&scaling=scale-down)
+[![testes-B](img/Home-A.png)](https://www.figma.com/proto/HXPRzYK8oAl1zHjUNvycWB/Pok%C3%A9dex?node-id=69%3A377&scaling=scale-down)
 
 
 
@@ -153,5 +153,5 @@ https://www.figma.com/proto/HXPRzYK8oAl1zHjUNvycWB/Pok%C3%A9dex?node-id=69%3A377
 
 www.pokemon.co.jp
 www.pokemongo.jp
-zukan.pokemon.co.jp
+www.zukan.pokemon.co.jp
 www.fandom.com
