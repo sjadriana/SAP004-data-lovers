@@ -139,10 +139,6 @@ Teste: https://forms.gle/2AcsHgqPXQZt3cvq7
 
 Acesse o protótipo de alta fidelidade clicando nas imagens abaixo:
  
-https://www.figma.com/proto/HXPRzYK8oAl1zHjUNvycWB/Pok%C3%A9dex?node-id=69%3A377&scaling=scale-down
-
-
-
 [![testes-A](img/Home-A.jpg)](https://www.figma.com/proto/HXPRzYK8oAl1zHjUNvycWB/Pok%C3%A9dex?node-id=1%3A2&scaling=scale-down)
 [![testes-B](img/Home-B.png)](https://www.figma.com/proto/HXPRzYK8oAl1zHjUNvycWB/Pok%C3%A9dex?node-id=69%3A377&scaling=scale-down)
 
