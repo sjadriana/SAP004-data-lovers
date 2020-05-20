@@ -5,8 +5,6 @@ import icons from './icons.js';
 const pokemonData = data.pokemon;
 
 
-
-
 // banco de dados
 
 
@@ -48,10 +46,9 @@ const buttonFlying = document.querySelector("#buttonFlying");
 const card = (num, name, img, type) => {
   let icon = type.map(function(name){
   const iconName = name.toLowerCase();
-    return`<span class="${icons[iconName]}"></span>`
+    return`<span class="${icons[iconName]}"></span>`;
   }).join(' ')
 
-    
   return `<figure class="card-pokemon"><p class="pokemon-num">${num}</p>
   <img src="${img}" alt="Miniatura do pokémon ${name}">
   <p class="pokemon-type">${icon}</p>
@@ -85,7 +82,7 @@ const displayPokemons = (pokemon) => {
 };
 
 // **** Botões Ordem ******
-buttonAZ.addEventListener("click", () => displayPokemons(sortOrder("az", "name", pokemonData)));
+buttonAZ.addEventListener("click", () => displayPokemons(sortOrder("az", "name", pokemonData)) ;
 buttonZA.addEventListener("click", () => displayPokemons(sortOrder("za", "name", pokemonData)));
 buttonCresc.addEventListener("click", () => displayPokemons(sortOrder("cresc", "id", pokemonData)));
 buttonDecre.addEventListener("click", () => displayPokemons(sortOrder("decre", "id", pokemonData)));
