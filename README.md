@@ -151,7 +151,7 @@ https://www.figma.com/proto/HXPRzYK8oAl1zHjUNvycWB/Pok%C3%A9dex?node-id=69%3A377
 
 ## 7. REFERÊNCIAS:
 
-www.pokemon.co.jp
-www.pokemongo.jp
-www.zukan.pokemon.co.jp
-www.fandom.com
+www.pokemon.co.jp;
+www.pokemongo.jp;
+www.zukan.pokemon.co.jp;
+www.fandom.com;
